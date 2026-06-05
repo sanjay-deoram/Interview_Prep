@@ -18,9 +18,9 @@ class File:
         self.name: str = ""
         self.versions: List[Version] = []
 
-    def list_verisons(self):
+    def list_verisons(self,file_name: str):
         for v in self.versions:
-            print(f"Version: {v.id} | created at: {v.created_at}")
+            print(f"File name: {file_name} Version: {v.id} | created at: {v.created_at}")
 
 
 @dataclass
@@ -51,14 +51,14 @@ class FileManager:
             raise Exception("File does not exists")
 
         file: File = self.files[file_name]
-        file.list_verisons()
+        file.list_verisons(file_name)
 
     def file_exists(self, file_name) -> bool:
         """Check if this file exists in files"""
 
         if not file_name:
             raise Exception("Please provide file name")
-        # Check if file already exists
+
         if file_name in self.files:
             return True
 
