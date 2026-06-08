@@ -23,7 +23,6 @@ class File:
             print(f"File name: {file_name} Version: {v.id} | created at: {v.created_at}")
 
 
-@dataclass
 class FileManager:
     def __init__(self) -> None:
         self.files: dict[str:File] = {}
